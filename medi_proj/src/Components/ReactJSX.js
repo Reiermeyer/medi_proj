@@ -28,7 +28,7 @@ let topElementExample =
       <h1>I am a Header.</h1>
       <h1>I am a Header too.</h1>
     </div>
-  );`;
+);`;
 
 export default class ReactJSX extends React.Component {
     render() {
