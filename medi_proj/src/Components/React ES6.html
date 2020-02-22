@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React ES6</title>
+    <style >
+      #a {
+        background-color: #ffffcc;
+        height: 50px;
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+      }
+      #b {
+        background-color: black;
+        color: white;
+        height: 27px;
+        display: flex;
+        border-left: 4px solid #4CAF50;
+        box-sizing: inherit;
+        padding-left: 10px;
+        flex-direction: column;
+        justify-content:center;
+      }
+      #c{
+        color: #006600;
+        font-style: normal;
+        font-size: 19px;
+      }
+      h1{color: green;}
+      span{
+        color: crimson;
+        background-color: #f1f1f1;
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+      pre{
+        background-color: #f1f1f1;
+      }
+      code{
+        font-family: Consolas, 'Source Code Pro', Menlo, Monaco, 'Andale Mono',
+         'Ubuntu Mono', monospace;
+         font-size: 14px;
+      }
+      </style>
+  </head>
+  <body>
+    <h2>Was ist ES6?</h2>
+    <p>ES6 steht für ECMAScript 6.<br> Es wurde eingeführt um JavaScript zu
+    standardisieren.<br> ES6 ist die sechste Version von ECMAScript.</p>
+
+    <h2>Klassen</h2>
+    <p>ES6 führt Klassen ein. Um eine Klasse zu initialisieren benutzt man das
+    Wort <span>class</span>. <br>Die Eigenschaften dieser Klassen kommen in den
+    <span>constructor()</span>.Anschließend kannst du Methoden -
+    sogenannte Funktionen der Klasse - hinzufügen.
+    <p id="c">Beispiel:</p>
+    <pre>
+      <code class="language-innerHTML">
+    class Car{
+      constructor(name){
+        this.brand = name;
+      }
+
+    present(){
+      return 'I have a ' + this.brand;
+      }
+    }
+    mycar = new Car("Ford");
+    mycar.present();
+      </code>
+    </pre>
+
+    Die Klasse Car hat als Konstruktor den Namen des Automobilherstellers und eine
+    Methode die "<em>Ich habe einen </em>" und die Marke meines Autos zum Beispiel
+    "<em>Ford</em> " zurückgibt.
+    </p>
+    <h3>Vererbung</h3>
+    <p>Um eine Vererbung zu erzeugen, verwendet man <span>extends</span>. <br>
+    Eine mit Klassenvererbung erstellte klasse erbt alle Methoden einer anderen Klasse.
+    Beispiel einer Klasse "Model", welche alle Methoden der Klasse "Car" erbt:
+    <pre>
+    <code class="language-innerHTML">
+    class Car {
+      constructor(name) {
+        this.brand = name;
+      }
+    present() {
+      return 'I have a ' + this.brand;
+      }
+    }
+
+    class Model extends Car {
+      constructor(name, mod) {
+        super(name);
+        this.model = mod;
+    }
+    show() {
+      return this.present() + ', it is a ' + this.model
+      }
+    }
+    mycar = new Model("Ford", "Mustang");
+    mycar.show();
+      </code>
+    </pre>
+    Die Methode <span>super()</span> verweist auf die parent-Klasse.
+    </p>
+    <h2>Pfeilfunktionen</h2>
+    <p>Pfeilfunktionen erlauben kürzere Funktionen-Syntax zu schreiben.
+    Um den Unterschied sichtbar zu machen hier ein
+    <p id="c">Vorher-Nachher-Beispiel:</p>
+    Ohne Pfeilfunktion:
+    <pre>
+    <code class="language-innerHTML">
+    hello = function() {
+      return "Hello World!";
+    }
+    </code>
+    </pre>
+    Mit Pfeilfunktion:
+    <pre>
+    <code class="language-innerHTML">
+    hello = () => {
+      return "Hello World!";
+    }
+    </code>
+    </pre>
+    </p>
+    <h2>Das <span>this</span></h2>
+    <p>In Pfeilfunktionen gibt es keine Bindung von <span>this</span>.
+    Es stellt das Objekt dar, das die Pfeilfunktion definiert.
+    In normalen Funktionen stellt dieses Schlüsselwort das Objekt dar, welches
+    die Funktion aufruft.<br>
+    Bei einer regulären Funktion stellt <span>this</span> das Objekt dar,
+    welches die Funktion aufgerufen hat:
+    <p id="c">Beispiel:</p>
+    <pre>
+    <code class="language-innerHTML">
+    class Header {
+      constructor() {
+        this.color = "Red";
+    }
+
+    //Regular function:
+      changeColor = function() {
+        document.getElementById("demo").innerHTML += this;
+      }
+    }
+    myheader = new Header();
+
+    //The window object calls the function:
+    window.addEventListener("load", myheader.changeColor);
+
+    //A button object calls the function:
+    document.getElementById("btn").addEventListener("click", myheader.changeColor);
+    </code>
+    </pre>
+    Bei einer Pfeilfunktion stellt <span>this</span> das Header-Objekt dar -
+    unabhängig davon, womit die Funktion aufgerufen wird:
+    <p id="c">Beispiel:</p>
+    <pre>
+    <code class="language-innerHTML">
+    class Header {
+      constructor() {
+        this.color = "Red";
+      }
+
+    //Arrow function:
+      changeColor = () => {
+        document.getElementById("demo").innerHTML += this;
+        }
+      }
+    myheader = new Header();
+
+    //The window object calls the function:
+    window.addEventListener("load", myheader.changeColor);
+
+    //A button object calls the function:
+    document.getElementById("btn").addEventListener("click", myheader.changeColor);
+    </code>
+    </pre>
+    <p id="a">Erinnere dich immer daran, wenn du mit Funktionen arbeitest!
+    </p>
+    </p>
+    <h2>Variablen</h2>
+    <p>Mit ES6 gibt es drei Möglichkeiten Variablen zu definieren:<br>
+      - <span>var</span><br>
+      - <span>let </span><br>
+      - <span>const </span><br>
+    Wenn du <span>var</span> außerhalb einer Funktion benutzt, besitzt es einen
+    globalen Geltungsbereich.<br>
+    Kommt <span>var</span> innerhalb einer Funktion vor, bezieht es sich
+    nur auf diese Funktion. <br>
+    Wenn du <span>var</span> zum Beispiel in einer Schleife benutzt, ist die Variable
+    auch außerhalb der Schleife verfügbar.
+    <p id="a">var hat einen Funktionsbreich, keinen
+    Blockbereich.</p>
+    <p id="a">let besitzt einen Blockbereich.</p>
+    Dass heißt eine <span>let</span> -Variable ist nur in einer Schleife gültig.<br>
+    Eine <span>const</span>-Variable kann man nach einer Deklaration nicht mehr
+    verändern.
+    <p id="a">const-Variablen besitzen einen Blockbereich.</p></p>
