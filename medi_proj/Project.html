@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8" content="width=device-width, initial-scale=1" />
+    <title>Soße</title>
+    <script type="text/javascript">
+      function js() {
+        document.getElementById("code").innerHTML = "import React from 'react'&#59;<br>import ReactDOM from 'react-dom'&#59;<br><br>class Mensch extends React.Component {<br>  render() {<br>    return &lt;h2&gt; Ich heiße {this.props.<i><b style="color:red">name</b></i>}! &lt;&#47;h2&gt;&#59;<br>    }<br>  }<br><br>const beispiel &#61; &lt;Mensch <i><b style="color:red">name</b></i>&#61;&#34;Mustermann&#34; &#47;&gt;&#59;<br>ReactDOM.render(beispiel, document.getElementById('wurzel'))&#59;";
+      }
+
+      function html() {
+        document.getElementById("code").innerHTML = "&lt;!DOCTYPE html&gt;<br>&lt;html lang=&#34;de&#34;&gt;<br>  &lt;head&gt;<br>    &lt;meta charset=&#34;utf-8&#34; /&gt;<br>    &lt;meta name=&#34;viewport&#34;<br>      content=&#34;width=device-width, initial-scale=1&#34; /&gt;<br>  &lt;/head&gt;<br>  &lt;body&gt;<br><br>    &lt;div id=&#34;wurzel&#34;&gt;&lt;/div&gt;<br><br>  &lt;/body&gt;<br>&lt;/html&gt;";
+      }
+
+      function js1() {
+        document.getElementById("code1").innerHTML = "import React from 'react'&#59;<br>import ReactDOM from 'react-dom'&#59;<br><br>class Mensch extends React.Component {<br>  render() {<br>    return &lt;h2&gt;Ich heiße {this.props.<i><b style="color:red">name</b></i>}!&lt;/h2&gt;&#59;<br>  }<br>}<br><br>class Deutschland extends React.Component {<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Ich komme aus Deutschland&lt;/h1&gt;<br>      &lt;Mensch <i><b style="color:red">name</b></i>=&#34;Mustermann&#34; /&gt;<br>      &lt;/div&gt;<br>    )&#59;<br>  }<br>}<br><br>ReactDOM.render(&lt;Deutschland /&gt;, document.getElementById('wurzel'))&#59;";
+      }
+
+      function html1() {
+        document.getElementById("code1").innerHTML = "&lt;!DOCTYPE html&gt;<br>&lt;html lang=&#34;de&#34;&gt;<br>  &lt;head&gt;<br>    &lt;meta charset=&#34;utf-8&#34; /&gt;<br>    &lt;meta name=&#34;viewport&#34;<br>      content=&#34;width=device-width, initial-scale=1&#34; /&gt;<br>  &lt;/head&gt;<br>  &lt;body&gt;<br><br>    &lt;div id=&#34;wurzel&#34;&gt;&lt;/div&gt;<br><br>  &lt;/body&gt;<br>&lt;/html&gt;";
+      }
+    </script>
+  </head>
+  <style media="screen">
+
+  </style>
+  <link rel="stylesheet" href="stylesheet1.css">
+  <body>
+      <h1>React Props</h1>
+      <p>Props sind Argumente welche in React Components übergeben werden. Sie werden durch HTML-Attribute übergeben. Sie sind wie Funktionsargumente in JavaScript und Attribute in HTML. Um Props in Components zu übergeben, nutzt man dieselbe Schreibweise wie bei HTML Attributen:</p>
+      <div class="b">
+        <h3>Beispiel</h3>
+        Füge ein Attribut "name" dem Element "Mensch" zu:
+        <div class="c">
+          <pre>const beispiel = &lt;Mensch <i><b style="color:red">name</b></i>="Mustermann" &#47;&gt;&#59;</pre>
+        </div>
+      </div>
+      <p>Das Component erhält das Argument als props-Objekt:</p>
+      <div class="b">
+        <h3>Beispiel</h3>
+        Nutze das Attribut "name" im Component:
+        <div class="e">
+          <input type="button" value="test.js" onclick="js()" />
+      	  <input type="button" value="test.html" onclick="html()" />
+        </div>
+        <div class="d">
+          <div style="background-color: white; min-width: 500px; min-height: 220px;">
+            <pre id="code">import React from 'react'&#59;<br>import ReactDOM from 'react-dom'&#59;<br><br>class Mensch extends React.Component {<br>  render() {<br>    return &lt;h2&gt; Ich heiße {this.props.<i><b style="color:red">name</b></i>}! &lt;&#47;h2&gt;&#59;<br>    }<br>  }<br><br>const beispiel &#61; &lt;Mensch <i><b style="color:red">name</b></i>&#61;&#34;Mustermann&#34; &#47;&gt;&#59;<br>ReactDOM.render(beispiel, document.getElementById('wurzel'))&#59;</pre>
+          </div>
+          <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
+            <div style="border: solid 1px gray;">
+              <b>Browser</b>
+            </div>
+              <pre><h2>Ich heiße Mustermann!</h2></pre>
+            </div>
+          </div>
+      </div>
+
+      <h2>Daten weiterreichen</h2>
+      <p>Props kannst du auch nutzen um Daten, als Parameter, von einem Component zum anderen zu überreichen.</p>
+      <div class="b">
+        <h3>Beispiel</h3>
+        Überreiche das "name" vom Component Deutschland zum Component Mensch:
+        <div class="e">
+          <input type="button" value="test.js" onclick="js1()" />
+          <input type="button" value="test.html" onclick="html1()" />
+        </div>
+        <div class="d">
+          <div style="background-color: white; min-width: 500px; min-height: 350px;">
+            <pre id="code1">import React from 'react'&#59;<br>import ReactDOM from 'react-dom'&#59;<br><br>class Mensch extends React.Component {<br>  render() {<br>    return &lt;h2&gt;Ich heiße {this.props.<i><b style="color:red">name</b></i>}!&lt;/h2&gt;&#59;<br>  }<br>}<br><br>class Deutschland extends React.Component {<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Ich komme aus Deutschland!&lt;/h1&gt;<br>      &lt;Mensch <i><b style="color:red">name</b></i>=&#34;Mustermann&#34; /&gt;<br>      &lt;/div&gt;<br>    )&#59;<br>  }<br>}<br><br>ReactDOM.render(&lt;Deutschland /&gt;, document.getElementById('wurzel'))&#59;</pre>
+          </div>
+          <div style="background-color: white; min-width: 600px; min-height: 350px; border: solid 1px gray;">
+            <div style="border: solid 1px gray;">
+              <b>Browser</b>
+            </div>
+              <pre>
+                <h1>Ich komme aus Deutschland!</h1>
+                <h2>Ich heiße Mustermann!</h2>
+              </pre>
+            </div>
+          </div>
+      </div>
+
+      <p>Wenn du eine Variable übergeben willst, dann setzt du sie einfach in geschwungene Klammern:</p>
+      <div class="b">
+        <h3>Beispiel</h3>
+        Erstelle eine Variable, z.B. mit dem Namen "person", und übergebe diese an das Component Mensch:
+        <div style="background-color: white; width: 500px; margin-left: 5px;">
+        <pre>import React from 'react'&#59;<br>import ReactDOM from 'react-dom'&#59;<br><br>class Mensch extends React.Component {<br>  render() {<br>    return &lt;h2&gt;Ich heiße {this.props.name!&lt;/h2&gt;&#59;<br>  }<br>}<br><br>class Deutschland extends React.Component {<br>  render() {<br>  <i><b style="color: red">const person = "Mustermann";</b></i><br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Ich komme aus Deutschland!&lt;/h1&gt;<br>      &lt;Mensch name=<i><b style="color: red">{person}</b></i> /&gt;<br>      &lt;/div&gt;<br>    )&#59;<br>  }<br>}<br><br>ReactDOM.render(&lt;Deutschland /&gt;, document.getElementById('wurzel'))&#59;</pre>
+        </div>
+      </div>
+
+      <p>Oder wenn du ein Objekt übergeben willst:</p>
+      <div class="b">
+        <h3>Beispiel</h3>
+        Erstelle ein Objekt namens "person" und übergebe dieses an das Component Mensch:
+        <div class="e">
+          <input type="button" value="test.js" onclick="js1()" />
+          <input type="button" value="test.html" onclick="html1()" />
+        </div>
+        <div class="d">
+          <div style="background-color: white; min-width: 500px; min-height: 350px;">
+            <pre id="code1">import React from 'react'&#59;<br>import ReactDOM from 'react-dom'&#59;<br><br>class Mensch extends React.Component {<br>  render() {<br>    return &lt;h2&gt;Ich heiße {this.props.<i><b style="color:red">name.vorname</b></i>}!&lt;/h2&gt;&#59;<br>  }<br>}<br><br>class Deutschland extends React.Component {<br>  render() {<br>  const person = <i><b style="color:red">{vorname: "Max", nachname: "Mustermann"}</b></i><br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Ich komme aus Deutschland!&lt;/h1&gt;<br>      &lt;Mensch name=<i><b style="color:red">{person}</b></i> /&gt;<br>      &lt;/div&gt;<br>    )&#59;<br>  }<br>}<br><br>ReactDOM.render(&lt;Deutschland /&gt;, document.getElementById('wurzel'))&#59;</pre>
+          </div>
+          <div style="background-color: white; min-width: 600px; min-height: 350px; border: solid 1px gray;">
+            <div style="border: solid 1px gray;">
+              <b>Browser</b>
+            </div>
+              <pre>
+                <h1>Ich komme aus Deutschland!</h1>
+                <h2>Ich heiße Max!</h2>
+              </pre>
+            </div>
+          </div>
+      </div>
+
+      <h2>Props im Konstruktor</h2>
+      <p>Wenn dein Component eine Konstruktor-Funktion hat, dann sollten die props immer zum Konstruktor und auch zum React.Component mithilfe der <i style="color:red;"><b>super()</b></i> Methode übergeben werden.</p>
+      <div class="b">
+        <h3>Beispiel</h3>
+        <div style="background-color:white; width: 560px; margin-left: 5px;">
+          <pre>class Car extends React.Component {<br> constructor(props) {<br>    super(props)&#59;<br> }<br> render() {<br>    return &lt;h2&gt;Ich bin ein Mensch!&lt;/h2&gt;&#59;<br> }<br>}<br><br>ReactDOM.render(&lt;Mensch vorname="Max"/&gt;, document.getElementById('wurzel'))&#59;</pre>
+        </div>
+        <p><b>Achtung!</b> React Props sind nur lesbar, ein Fehler würde auftreten, wenn man versucht den Wert zu ändern.</p>
+      </div>
+  </body>
+</html>
