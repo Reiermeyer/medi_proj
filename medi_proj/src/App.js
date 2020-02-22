@@ -12,7 +12,7 @@ import './App.css';
 import Intro from './Components/Intro.js';
 import GetStarted from './Components/GetStarted.js';
 import ReactES6 from './Components/ReactES6.js';
-import ReactRender from './Components/ReactRender.js/index.js'
+import ReactRender from './Components/ReactRender.js'
 
 function App() {
   return (
