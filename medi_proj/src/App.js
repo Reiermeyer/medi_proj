@@ -11,6 +11,7 @@ import './App.css';
 
 import Intro from './Components/Intro.js';
 import GetStarted from './Components/GetStarted.js';
+import ReactES6 from './Components/ReactES6.js';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
             <Link className="w3-bar-item w3-button" to="/">Home</Link>
             <Link className="w3-bar-item w3-button" to="/intro">Intro</Link>
             <Link className="w3-bar-item w3-button" to="/getstarted">Get Started</Link>
-            <Link className="w3-bar-item w3-button" to="/three">Three</Link>
+            <Link className="w3-bar-item w3-button" to="/es6">React und ES6</Link>
           </div> {/* Menu */}
           
           <Switch>
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <Route path="/getstarted">
               <GetStarted />
+            </Route>
+            <Route path="/es6">
+              <ReactES6 />
             </Route>
           </Switch>
 
