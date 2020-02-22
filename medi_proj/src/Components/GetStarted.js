@@ -1,6 +1,29 @@
 import React from 'react';
 
+let code = `
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css'; \n
+
+class App extends Component { \n
+    return (  \n
+    <div className="App"> \n
+        <header className="App-header"> \n
+        <img src={logo} className="App-logo" alt="logo" />
+        <p> Edit <code>src/App.js</code> and save to reload. </p> 
+        <a  className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer"> Learn React</a>\n
+        </header> \n
+    </div> \n
+    ); } } \n
+
+export default App;`
+
 export default class GetStarted extends React.Component {
+    
+    splitString(string) {
+        string.split("\n")
+    }
+
     render() {
       return (
         <div style={{marginLeft: '25%'}}>
@@ -11,30 +34,37 @@ export default class GetStarted extends React.Component {
   
               {/* Container */}
               <div className="w3-container">
-              <h2>React Directly in HTML</h2>
-              <p>The quickest way start learning React is to write React directly in your HTML files.
-                Start by including three scripts, the first two let us write React code in our JavaScripts, and the third, Babel, allows us to write JSX syntax and ES6 in older browsers.
-                You will learn more about JSX in the React JSX chapter.
+              <h2>React direkt in HTML</h2>
+              <p>Für den Anfang ist es sehr einfach HTML direkt in der HTML Datei zu schreiben.<br />
+                Dafür müssen drei JavaScript Bibliotheken importiert werden. Einmal 'react' und 'react-dom' um auf die Funktionen von Reactjs zuzugreifen und 'babel' um die JSX Syntax und den Javascript Standart ES6 in älteren Browsern zu nutzen. 
                </p>
 
-              <h2>Setting up a React Environment</h2>
-              <p>If you have NPM and Node.js installed, you can create a React application by first installing the create-react-app.</p>
-              <p>Install create-react-app by running this command in your terminal:</p>
-              <p>npm install -g create-react-app</p>
+              <h2>Aufsetzen der React Umgebung</h2>
+              <p>nodejs und npm (Node Package Manager) müssen instaliert werden bevor mit der Reactjs Entwicklung begonnen werden kann.</p>
+              <p>Als nächstes muss create-react-app installiert indem folgernder Befehl im Terminal gemacht wird:</p>
+              <code>npm install -g create-react-app</code>
 
-              <p>Then you are able to create a React application, let's create one called myfirstreact.
-                Run this command to create a React application named myfirstreact:</p>
-              <p>npx create-react-app myfirstreact</p>
-              <p>The create-react-app will set up everything you need to run a React application.</p>
+              <p>Jetzt kann eine React Anwendung mit dem Namen myfirstreact erstellt werden. Führe diesen Befehl aus um die Anwendung zu erstellen:</p>
+              <code>npx create-react-app myfirstreact</code>
+              <p>Dieser Befehl installiert alle nötigen Javascript Bibliotheken, erstellt ein Node Projekt und die nötigen Dateien um ein simples React Programm auszuführen.</p>
 
-              <h2>Run the React Application</h2>
-              <p>Now you are ready to run your first real React application! Run this command to move to the myfirstreact directory:</p>
-              <p>cd myfirstreact</p>
-              <p>npm start</p>
+              <h2>Ausführen der React Anwendungs</h2>
+              <p>Jetzt kann die erste React Anwendung gestartet werden! Gehe mit diesem Befehl in den myfirstreact Ordner und starte die Anwendung:</p>
+              <code>cd myfirstreact</code>
+              <code>npm start</code>
 
-              <p>A new browser window will pop up with your newly created React App! If not, open your browser and type localhost:3000 in the address bar.</p>
+              <p>Es sollte automatisch ein Browser geöffnet werden mit der React Seite offen! Falls nicht findest du die Anwendung indem du localhost:3000 in die Adressleiste des Browsers eingibst.</p>
+    
+             <h2>Bearbeiten der React Anwendung</h2>
+                <p>Im myfirstreact Ordner, befindet sich ein src Ordner. In diesem src ist eine Javascript Datei App.js, öffne sie und sie sollte wie folgt aussehen:</p>
+                <code>
+                    <p>
+                        {code.split("\n").map((item) => {
+                            return ([item, <br />]);
+                        })}
+                   </p>
 
-
+                </code>
               </div> {/* Container */}
           </div> 
       );

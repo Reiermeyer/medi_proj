@@ -11,13 +11,19 @@ export default class Intro extends React.Component {
   
               {/* Container */}
               <div className="w3-container">
-                <h2>Introduction</h2>
-                <h3>What is React?</h3>
-                <p>React is a JavaScript library created by Facebook. React is a tool for building UI components.</p>
-                <h3>How does React Work?</h3>
-                <p>Instead of manipulating the browser's DOM directly, React creates a virtual DOM in memory, where it does all the necessary manipulating, before making the changes in the browser DOM.</p>
-                <p>React finds out what changes have been made, and changes only what needs to be changed. You will learn the various aspects of how React does this in the rest of this tutorial.</p>
-              </div> {/* Container */}
+                <h2>Einführung</h2>
+                <h3>Was ist React?</h3>
+                <p>React ist eine Javascript Bibliothek von Facebook mit der BSD-Linzens veröffentlicht. <br/>
+                    Sie dient dazu moderne Webanwendung mit hoher Performance und modularem, leicht nachzuvollziehendem Frontend-Code.  <br/>
+                    Seitdem nutzen viele große Websites React, darunter Facebook, Instagram, AirBnB, Yahoo,..
+                </p>
+                <h3>Wie arbeitet React?</h3>
+                <p>Statt die HTML DOM Elemente zu manipulieren erstellt React einen viruellen DOM durch den sehr hohe Render-Geschwindigkeiten erreicht werden können. <br/>
+                    React wird in Components strukturiert, die jeweils den HTML und den Javascript Code für ein Modul der Website enthalten. <br/> 
+                    Eine Component Rendert jeweils eine Ansicht und verfügt über einen State der von den übergeordneten Components durchgereicht wird.  <br/>
+                    React Components updaten die Ansicht automatisch wenn sich der State ändert, dabei wird der virtuelle DOM zuerst manipuliert, damit React am eigentlichen DOM erkennt was wirklich geändert werden muss.
+                </p>
+              </div>
           </div> 
       );
     };
