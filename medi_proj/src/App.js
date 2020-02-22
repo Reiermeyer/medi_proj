@@ -13,6 +13,7 @@ import Intro from './Components/Intro.js';
 import GetStarted from './Components/GetStarted.js';
 import ReactES6 from './Components/ReactES6.js';
 import ReactRender from './Components/ReactRender.js'
+import ReactJSX from './Components/ReactJSX.js'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Link className="w3-bar-item w3-button" to="/getstarted">Get Started</Link>
             <Link className="w3-bar-item w3-button" to="/es6">React und ES6</Link>
             <Link className="w3-bar-item w3-button" to="/renderhtml">React render</Link>
+            <Link className="w3-bar-item w3-button" to="/jsx">React JSX</Link>
           </div> {/* Menu */}
           
           <Switch>
@@ -40,6 +42,9 @@ function App() {
             </Route>
             <Route path="/renderhtml">
               <ReactRender />
+            </Route>
+            <Route path="/jsx">
+              <ReactJSX />
             </Route>
           </Switch>
 
