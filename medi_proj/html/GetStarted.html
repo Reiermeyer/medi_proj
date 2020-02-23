@@ -1,0 +1,58 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+    <div id="root">
+        <div class="App">
+            <div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 25%;">
+                <h3 class="w3-bar-item">Reactjs Tutorial</h3>
+                <a class="w3-bar-item w3-button" href="Index.html">Home</a>
+                <a class="w3-bar-item w3-button" href="GetStarted.html">Get Started</a>
+                <a class="w3-bar-item w3-button" href="ES6.html">React ES6</a>
+                <a class="w3-bar-item w3-button" href="Render.html">React Render</a>
+                <a class="w3-bar-item w3-button" href="JSX.html">React JSX</a>
+                <a class="w3-bar-item w3-button" href="Components.html">React Components</a>
+                <a class="w3-bar-item w3-button" href="ReactProps.html">React Props</a>
+                <a class="w3-bar-item w3-button" href="ReactState.html">React State</a>
+            </div>
+            <div style="margin-left: 25%;">
+                <div class="w3-container w3-teal">
+                    <h1>React Getting Started</h1>
+                </div>
+                <div class="w3-container">
+                    <h2>React direkt in HTML</h2>
+                    <p>Für den Anfang ist es sehr einfach HTML direkt in der HTML Datei zu schreiben.<br>Dafür müssen
+                        drei JavaScript Bibliotheken importiert werden. Einmal 'react' und 'react-dom' um auf die
+                        Funktionen von Reactjs zuzugreifen und 'babel' um die JSX Syntax und den Javascript Standart ES6
+                        in älteren Browsern zu nutzen.</p>
+                    <h2>Aufsetzen der React Umgebung</h2>
+                    <p>nodejs und npm (Node Package Manager) müssen instaliert werden bevor mit der Reactjs Entwicklung
+                        begonnen werden kann.</p>
+                    <p>Als nächstes muss create-react-app installiert indem folgernder Befehl im Terminal gemacht wird:
+                    </p><code>npm install -g create-react-app</code>
+                    <p>Jetzt kann eine React Anwendung mit dem Namen myfirstreact erstellt werden. Führe diesen Befehl
+                        aus um die Anwendung zu erstellen:</p><code>npx create-react-app myfirstreact</code>
+                    <p>Dieser Befehl installiert alle nötigen Javascript Bibliotheken, erstellt ein Node Projekt und die
+                        nötigen Dateien um ein simples React Programm auszuführen.</p>
+                    <h2>Ausführen der React Anwendung</h2>
+                    <p>Jetzt kann die erste React Anwendung gestartet werden! Gehe mit diesem Befehl in den myfirstreact
+                        Ordner und starte die Anwendung:</p><code>cd myfirstreact</code><code>npm start</code>
+                    <p>Es sollte automatisch ein Browser geöffnet werden mit der React Seite offen! Falls nicht findest
+                        du die Anwendung indem du localhost:3000 in die Adressleiste des Browsers eingibst.</p>
+                        <img src="screenshot_myfirstreact.png">
+                    <h2>Bearbeiten der React Anwendung</h2>
+                    <p>Im myfirstreact Ordner, befindet sich ein src Ordner. In diesem src ist eine Javascript Datei
+                        App.js, öffne sie und sie sollte wie folgt aussehen:</p>
+                    <pre><code><p><br>import React, { Component } from 'react';<br>import logo from './logo.svg';<br>import './App.css'; <br><br><br>class App extends Component { <br><br>    return (  <br><br>        &lt;div className="App"&gt; <br><br>            &lt;header className="App-header"&gt; <br><br>                &lt;img src={logo} className="App-logo" alt="logo" /&gt;<br>                <br>                &lt;p&gt; <br>                    Edit &lt;code&gt;src/App.js&lt;/code&gt; and save to reload. <br>                &lt;/p&gt; <br>                <br>                &lt;a  <br>                    className="App-link" <br>                    href="https://reactjs.org" <br>                    target="_blank" <br>                    rel="noopener noreferrer"&gt; <br>                    Learn React<br>                &lt;/a&gt;<br><br>            &lt;/header&gt; <br><br>        &lt;/div&gt; <br><br>        ); <br>    } <br>} <br><br><br>export default App;<br></p></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

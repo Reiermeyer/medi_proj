@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" content="width=device-width, initial-scale=1" />
+    <title>React State</title>
+    <script type="text/javascript">
+      var x = 0;
+      function js(code) {
+        if(code == 0) document.getElementById("code0").innerHTML = "import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Mensch extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {<br>      name: \"Mustermann\",<br>      geschlecht: \"männlich\",<br>      alter: 42,<br>      herkunft: \"Deutschland\"<br>};<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>        &lt;h1&gt;Ich heiße {this.state.name}&lt;/h1&gt;<br>        &lt;p&gt;<br>         Ich bin {this.state.geschlecht}, {this.state.alter} Jahre<br>         und komme aus {this.state.herkunft}.<br>        &lt;/p&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Mensch /&gt;, document.getElementById('wurzel'));";
+        if(code == 1) document.getElementById("code1").innerHTML = "import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Mensch extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {<br>      name: \"Mustermann\",<br>      geschlecht: \"männlich\",<br>      alter: 42,<br>      herkunft: \"Deutschland\"<br>   };<br>  }<br>  ändereAlter = () => {<br>   this.setState({alter: 50});<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>        &lt;h1&gt;Ich heiße {this.state.name}&lt;/h1&gt;<br>        &lt;p&gt;<br>         Ich bin {this.state.geschlecht}, {this.state.alter} Jahre<br>         und komme aus {this.state.herkunft}.<br>        &lt;/p&gt;<br>        &lt;button<br>          type=\"button\"<br>         onClick={this.ändereAlter}<br>        &gt;Ändere das Alter&lt;/button&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Mensch /&gt;, document.getElementById('wurzel'));";
+      }
+      function html(code) {
+        document.getElementById("code" + code).innerHTML = "&lt;!DOCTYPE html&gt;<br>&lt;html lang=&#34;de&#34;&gt;<br>  &lt;head&gt;<br>    &lt;meta charset=&#34;utf-8&#34; /&gt;<br>    &lt;meta name=&#34;viewport&#34;<br>      content=&#34;width=device-width, initial-scale=1&#34; /&gt;<br>  &lt;/head&gt;<br>  &lt;body&gt;<br><br>    &lt;div id=&#34;wurzel&#34;&gt;&lt;/div&gt;<br><br>  &lt;/body&gt;<br>&lt;/html&gt;";
+      }
+
+      function alter(){
+        x += 1;
+        if(x == 1) document.getElementById("1").innerHTML = "<h1>Ich heiße Mustermann!</h1><p>Ich bin männlich, 50 Jahre und ich komme aus Deutschland.</p>";
+        if(x == 2) {
+          document.getElementById("1").innerHTML = "<h1>Ich heiße Mustermann!</h1><p>Ich bin männlich, 42 Jahre und ich komme aus Deutschland.</p>";
+          x = 0;
+        }
+      }
+    </script>
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div class="App">
+            <div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 25%;">
+              <h3 class="w3-bar-item">Reactjs Tutorial</h3>
+              <a class="w3-bar-item w3-button" href="Index.html">Home</a>
+              <a class="w3-bar-item w3-button" href="GetStarted.html">Get Started</a>
+              <a class="w3-bar-item w3-button" href="ES6.html">React ES6</a>
+              <a class="w3-bar-item w3-button" href="Render.html">React Render</a>
+              <a class="w3-bar-item w3-button" href="JSX.html">React JSX</a>
+              <a class="w3-bar-item w3-button" href="Components.html">React Components</a>
+              <a class="w3-bar-item w3-button" href="ReactProps.html">React Props</a>
+              <a class="w3-bar-item w3-button" href="ReactState.html">React State</a>
+            </div>
+            <div style="margin-left: 25%;">
+                <div class="w3-container w3-teal">
+                    <h1>React State</h1>
+                </div>
+                <div class="w3-container">
+                  <h1>React State</h1>
+                  <p>React <i>Components</i> haben ein integriertes Objekt "<i><b style="color:red">state</b></i>". In das Objekt "<i><b style="color:red">state</b></i>" kann man Attribute speichern, welche zum <i>Component</i> gehören. Sollte sich das Objekt "<i><b style="color:red">state</b></i>" ändern, dann rendert das <i>Component</i> neu.</p>
+                  <h2>Erstellen des Objekts "<i><b style="color:red">state</b></i>"</h2>
+                  <p>Das Objekt "<i><b style="color:red">state</b></i>" wird im Kontruktor initialisiert:</p>
+                  <div class="b">
+                    <h3>Beispiel</h3>
+                    Setze das Objekt "<i><b style="color:red">state</b></i>" in der Konstruktormethode:
+                    <div class="c">
+                      <pre>class Mensch extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {name: "Mustermann"};<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>        &lt;h1&gt;Ich bin ein Mensch&lt;/h1&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}</pre>
+                    </div>
+                  </div>
+                  <p>Das Objekt "<i><b style="color:red">state</b></i>" kann beliebig viele Attribute enthalten:</p>
+                  <div class="b">
+                    <h3>Beispiel</h3>
+                    Setze alle, für das <i>Component</i> nötigen Attribute:
+                    <div class="c">
+                      <pre>class Mensch extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {<br>      name: "Mustermann",<br>      geschlecht: "männlich",<br>      alter: 42,<br>      herkunft: "Deutschland"<br>};<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>        &lt;h1&gt;Ich bin ein Mensch&lt;/h1&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}</pre>
+                    </div>
+                  </div>
+              
+                  <h2>Verwendung des Objekts "<i><b style="color:red">state</b></i>"</h2>
+                  <p>Auf das Objekt "<i><b style="color:red">state</b></i>" kann man von überall im <i>Component</i>, durch Nutzung des <i><b style="color:red">this.state.propertyname</b></i> Syntax, zugreifen:</p>
+                  <div class="b">
+                    <h3>Beispiel</h3>
+                    Aus der Methode render() kann auf das Objekt "<i><b style="color:red">state</b></i>" zugegriffen werden:
+                    <div class="e">
+                      <input type="button" value="test.js" onclick="js('0')" />
+                      <input type="button" value="test.html" onclick="html('0')" />
+                    </div>
+                    <div class="d">
+                      <div style="background-color: white; min-width: 500px; min-height: 28em;">
+                        <pre id="code0">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Mensch extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {<br>      name: "Mustermann",<br>      geschlecht: "männlich",<br>      alter: 42,<br>      herkunft: "Deutschland"<br>};<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>        &lt;h1&gt;Ich heiße {this.state.name}&lt;/h1&gt;<br>        &lt;p&gt;<br>         Ich bin {this.state.geschlecht}, {this.state.alter} Jahre<br>         und komme aus {this.state.herkunft}.<br>        &lt;/p&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Mensch /&gt;, document.getElementById('wurzel'));</pre>
+                      </div>
+                      <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
+                        <div style="border: solid 1px gray;">
+                          <b>Browser</b>
+                        </div>
+                          <pre><h1>Ich heiße Mustermann!</h1><p>Ich bin männlich, 42 Jahre und ich komme aus Deutschland.</p></pre>
+                        </div>
+                      </div>
+                  </div>
+              
+                  <h2>Ändern des Objekts "<i><b style="color:red">state</b></i>"</h2>
+                  <p>Um Werte in "<i><b style="color:red">state</b></i>" zu ändern, nutzt man die Methode <i><b style="color:red">this.setState()</b></i>.</p>
+                  <p>Sollte sich ein Wert im Objekt "<i><b style="color:red">state</b></i>" ändern, so rendert das <i>Component</i> neu. Abhängig von dem neuen Wert ändert sich die Ausgabe.</p>
+                  <div class="b">
+                    <h3>Beispiel</h3>
+                    Füge einen Button mit onClick hinzu, um das Attribut "alter" zu ändern:
+                    <div class="e">
+                      <input type="button" value="test.js" onclick="js('1')" />
+                      <input type="button" value="test.html" onclick="html('1')" />
+                    </div>
+                    <div class="d">
+                      <div style="background-color: white; min-width: 500px; min-height: 35em;">
+                        <pre id="code1">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Mensch extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {<br>      name: "Mustermann",<br>      geschlecht: "männlich",<br>      alter: 42,<br>      herkunft: "Deutschland"<br>   };<br>  }<br>  ändereAlter = () => {<br>   this.setState({alter: 50});<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>        &lt;h1&gt;Ich heiße {this.state.name}&lt;/h1&gt;<br>        &lt;p&gt;<br>         Ich bin {this.state.geschlecht}, {this.state.alter} Jahre<br>         und komme aus {this.state.herkunft}.<br>        &lt;/p&gt;<br>        &lt;button<br>          type="button"<br>         onClick={this.ändereAlter}<br>        &gt;Ändere das Alter&lt;/button&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Mensch /&gt;, document.getElementById('wurzel'));</pre>
+                      </div>
+                      <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
+                        <div style="border: solid 1px gray;">
+                          <b>Browser</b>
+                        </div>
+                          <pre id="1"><h1>Ich heiße Mustermann!</h1><p>Ich bin männlich, 42 Jahre und ich komme aus Deutschland.</p></pre>
+                          <input type="button" value="Ändere das Alter" onclick="alter()" />
+                        </div>
+                      </div>
+                      <div class="b">
+                        <p>Nutze immer die Methode setState() um das Objekt "<i><b style="color:red">state</b></i>" zu ändern, auf diese Weise geht man sicher, dass das <i>Component</i> weiß, dass es geändert wurde und die Methode render() ruft.</p>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

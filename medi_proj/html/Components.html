@@ -1,0 +1,154 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div class="App">
+            <div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 25%;">
+                <h3 class="w3-bar-item">Reactjs Tutorial</h3>
+                <a class="w3-bar-item w3-button" href="Index.html">Home</a>
+                <a class="w3-bar-item w3-button" href="GetStarted.html">Get Started</a>
+                <a class="w3-bar-item w3-button" href="ES6.html">React ES6</a>
+                <a class="w3-bar-item w3-button" href="Render.html">React Render</a>
+                <a class="w3-bar-item w3-button" href="JSX.html">React JSX</a>
+                <a class="w3-bar-item w3-button" href="Components.html">React Components</a>
+                <a class="w3-bar-item w3-button" href="ReactProps.html">React Props</a>
+                <a class="w3-bar-item w3-button" href="ReactState.html">React State</a>
+            </div>
+            <div style="margin-left: 25%;">
+                <div class="w3-container w3-teal">
+                    <h1>React Components</h1>
+                </div>
+                <div class="w3-container">
+                    <h2>React Komponenten</h2>
+                    <p>Komponenten sind unabhängige und wiederverwendbare Codebits. Sie dienen dem gleichen Zweck wie
+                        JavaScript-Funktionen, arbeiten jedoch isoliert und geben HTML über eine Render-Funktion
+                        zurück.<br></p>
+                    <p id="a">Komponenten kann man in Klassen- und Funktionskomponenten unterteilen.</p>
+                    <p>In diesem Tutorial wirst du dich eher auf Klassenkomponenten konzentrieren.</p>
+                    <h2>Eine Klassenkomponente erstellen </h2>
+                    <p>Beim Erstellen einer React-Komponente muss der Name der Komponente mit einem Großbuchstaben
+                        beginnen. Die Komponente muss die erweiterte Anweisung <span>extends React.Component</span>
+                        enthalten, welches eine Vererbung zu React.Component herstellt und dir Zugriff auf die
+                        Funktionen von React.Component gewährt. <br>Die Komponente erfordert des Weiteren eine Methode
+                        <span>render()</span>, welche HTML zurückgibt.</p>
+                    <p id="c">Beispiel:</p><code><pre>class Car extends React.Component {
+    render() {
+      return &lt;h2&gt;Hi, I am a Car!&lt;/h2&gt;;
+    }
+}</pre></code>
+                    <p> Die React-Anwendung hat die Komponente Car, welche ein <span>h2</span>-Element zurückgibt. Nutze
+                        HTML-Syntax Car /, um die Komponente in deiner Anwendung zu benutzen.<br>Anzeige der Komponente
+                        Car im "root"-Element:</p>
+                    <code><pre>ReactDOM.render(Car /&gt;, document.getElementById('root'));</pre></code>
+                    <h2>Eine Funktionskomponente erstellen</h2>
+                    <p>Hier wird das gleiche Beispiel dargestellt, mit dem Unterschied, dass eine Funktionskomponente
+                        benutzt wird:</p>
+                    <p id="c">Beispiel:</p><code><pre>function Car() {
+    return &lt;h2&gt;Hi, I am also a Car!&lt;/h2&gt;;
+}</pre></code>
+                    <p>Die React-Anwendung hat die Komponente Car und wird im "root"-Element folgendermaßen
+                        dargestellt:<br></p>
+                    <code><pre>ReactDOM.render(Car /&gt;, document.getElementById('root'));</pre></code>
+                    <h2>Komponentenkonstruktor</h2>
+                    <p>Wenn sich eine Konstruktor-Funktion <span>constructor()</span> in deiner Komponente befindet,
+                        dann wird diese aufgerufen, wenn die Komponente initialisiert wird. In der Konstruktor-Funktion
+                        initialisierst du Eigenschaften der Komponente. Bei Reactjs beinhaltet ein Objekt
+                        namens<span>state</span> alle Komponenteneigenschaften.<br>Über <span>state</span> wirst du
+                        später etwas im Tutorial lernen.<br>Die Vererbung parent-Komponenten berücksichtigst du
+                        ebenfalls mit der Anweisung <span>super()</span>. Diese führt die Konstruktor-Funktionen der
+                        übergeordneten Komponente aus und sorgt dafür, dass deine Komponente Zugriff auf alle Funktionen
+                        der parent-Komponente hat (<span>React-Component</span>).<br>Erstelle die Konstruktor-Funktion
+                        in der Komponente Car und füge eine Farbe hinzu:</p>
+                    <p id="c">Beispiel:</p><code><pre>class Car extends React.Component {
+    constructor() {
+        super();
+        this.state = {color: "red"};
+    }
+    
+    render() {
+        return &lt;h2&gt;I am a Car!&lt;/h2&gt;;
+    }
+}</pre></code>
+                    <p>Benutze die Farbeigenschaft in der Funktion <span>render()</span>:</p><code><pre>class Car extends React.Component {
+    constructor() {
+      super();
+      this.state = {color: "red"};
+    }
+
+    render() {
+        return &lt;h2&gt;I am a {this.state.color} Car!&lt;/h2&gt;;
+    }
+}</pre></code>
+                    <h2>Props</h2>
+                    <p>Eine andere Möglichkeit mit Komponenteneigenschaften umzugehen bieten dir <span>props</span>.
+                        Diese sind ähnlich wie Funktionsargumente. Du sendest sie als Attribute an die Komponente.<br>
+                    </p>
+                    <p id="a">Im nächsten Kapitel lernst du mehr über props.</p>
+                    <h2>Komponenten in Komponenten</h2>
+                    <p>Du kannst ebenfalls auf Komponenten innerhalb von Komponenten verweisen. Verwende die Komponente
+                        Car in der Komponente Garage:</p><code><pre>class Car extends React.Component {
+    render() {
+      return &lt;h2&gt;I am a Car!&lt;/h2&gt;;
+    }
+}
+
+class Garage extends React.Component {
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;h1&gt;Who lives in my Garage?/h1&gt;
+                &lt;Car /&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+
+ReactDOM.render(Garage /&gt;, document.getElementById('root'));</pre></code>
+                    <h2>Komponenten in Dateien</h2>
+                    <p>In React geht um Wiederverwendung von Code. Manchmal kann es sinnvoll sein, einige deiner
+                        Komponenten in seperaten Dateien zu packen. Erstelle eine neue Datei mit der Endung .js und füge
+                        deinen Code dort ein. Beachte, dass die Datei mit dem Importieren von React (wie zuvor) beginnen
+                        muss und mit der Anweisung export default Car endet. Eine neue Datei mit dem Namen "App.js":</p>
+                    <code><pre>import React from 'react';
+import ReactDOM from 'react-dom';
+
+class Car extends React.Component {
+    render() {
+        return &lt;h2&gt;Hi, I am a Car!&lt;/h2&gt;;
+    }
+}
+
+export default Car;</pre></code>
+                    <p> Um die Komponente Car benutzen zu können, importiere die Datei in deine Anwendung:</p><code><pre>import React from 'react';
+import ReactDOM from 'react-dom';
+import Car from './App.js';
+
+ReactDOM.render(Car /&gt;, document.getElementById('root'));</pre></code>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script src="/static/js/bundle.js"></script>
+    <script src="/static/js/0.chunk.js"></script>
+    <script src="/static/js/main.chunk.js"></script>
+
+</body>
+
+</html>

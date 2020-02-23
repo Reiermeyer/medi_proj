@@ -1,0 +1,84 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div class="App">
+            <div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 25%;">
+                <h3 class="w3-bar-item">Reactjs Tutorial</h3>
+                <a class="w3-bar-item w3-button" href="Index.html">Home</a>
+                <a class="w3-bar-item w3-button" href="GetStarted.html">Get Started</a>
+                <a class="w3-bar-item w3-button" href="ES6.html">React ES6</a>
+                <a class="w3-bar-item w3-button" href="Render.html">React Render</a>
+                <a class="w3-bar-item w3-button" href="JSX.html">React JSX</a>
+                <a class="w3-bar-item w3-button" href="Components.html">React Components</a>
+                <a class="w3-bar-item w3-button" href="ReactProps.html">React Props</a>
+                <a class="w3-bar-item w3-button" href="ReactState.html">React State</a>
+            </div>
+            <div style="margin-left: 25%;">
+                <div class="w3-container w3-teal">
+                    <h1>React Render</h1>
+                </div>
+                <div class="w3-container">
+                    <h2>Die Render-Funktion</h2>
+                    <p>React verwendet beim Rendern von HTML die Funktion<span>ReactDOM.render()</span>.<br>Dafür nimmt
+                        sie den HTML-Code und ein HTML-Element. Der Zweck der Funktion besteht darin, den angegebenen
+                        HTML-Code innerhalb des angegebenen HTML-Elements anzuzeigen.<br>Darstellung eines Absatzes im
+                        "root"-Element:<br></p>
+                    <p id="c">Beispiel:</p><code><pre>ReactDOM.render(Hello, document.getElementById('root'));
+</pre></code>
+                    <p>Das Ergebnis erscheint im div id="root"-Element:</p><code><pre>&lt;body&gt;
+    &lt;div&gt; id="root" &lt;/div&gt;
+&lt;/body&gt;</pre></code>
+                    <h2>Der HTML-Code</h2>
+                    <p>Erzeuge eine Variable, die HTML-Code enthält und lass sie im "root"-Knoten anzeigen:</p>
+                    <p id="c">Beispiel:</p><code><pre>const myelement = (
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;John&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Elsa&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;   
+);
+
+ReactDOM.render(myelement, document.getElementById('root'));</pre></code>
+                    <h2>Der Wurzelknoten</h2>
+                    <p>Der Wurzelknoten ist das HTML-Element, wo du dein Ergebnis anzeigen lassen willst. Es ist wie ein
+                        container.</p>
+                    <p id="a">Es beginnt NICHT mit einem div-Element und benötigt KEIN id='root'.</p>
+                    <p id="c">Beispiel:</p><code><pre>&lt;body&gt;
+    &lt;header&gt; id="sandy"&gt;&lt;/header&gt;
+&lt;/body&gt;</pre></code>
+                    <p> Das Ergebnis erscheint im header id="sandy" - Element:</p>
+                    <code><pre>ReactDOM.render(Hallo, document.getElementById('sandy'));</pre></code>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script src="/static/js/bundle.js"></script>
+    <script src="/static/js/0.chunk.js"></script>
+    <script src="/static/js/main.chunk.js"></script>
+
+</body>
+</html>

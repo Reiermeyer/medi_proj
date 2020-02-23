@@ -1,0 +1,90 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div class="App">
+            <div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 25%;">
+                <h3 class="w3-bar-item">Reactjs Tutorial</h3>
+                <a class="w3-bar-item w3-button" href="Index.html">Home</a>
+                <a class="w3-bar-item w3-button" href="GetStarted.html">Get Started</a>
+                <a class="w3-bar-item w3-button" href="ES6.html">React ES6</a>
+                <a class="w3-bar-item w3-button" href="Render.html">React Render</a>
+                <a class="w3-bar-item w3-button" href="JSX.html">React JSX</a>
+                <a class="w3-bar-item w3-button" href="Components.html">React Components</a>
+                <a class="w3-bar-item w3-button" href="ReactProps.html">React Props</a>
+                <a class="w3-bar-item w3-button" href="ReactState.html">React State</a>
+            </div>
+            <div style="margin-left: 25%;">
+                <div class="w3-container w3-teal">
+                    <h1>React JSX</h1>
+                </div>
+                <div class="w3-container">
+                    <h2>Was ist JSX?</h2>
+                    <p>JSX bedeutet JavaScript XML. <br>Es erlaubt dir HTML in React zu ergänzen und hineinzuschreiben.
+                    </p>
+                    <p id="a">JSX muss nicht verwenden, es erleichtert aber das Erstellen von React-Anwendungen.</p>
+                    <p>JSX konvertiert HTML tags in React-Elemente.</p>
+                    <p id="c">Beispiel:</p><code><pre>const myelement = &lt;h1&gt;I Love JSX!&lt;/h1&gt;;
+ReactDOM.render(myelement, document.getElementById('root'));</pre></code>
+                    <p>Wie du siehst, erlaubt dir JSX HTML-Code direkt in JavaScript-Code hineinzuschreiben. JSX ist
+                        eine Erweiterung der auf ES6 basierenden Sprache JavaScript und wird zur Laufzeit in reguläres
+                        JavaScript übersetzt.</p>
+                    <h2>Ausdrücke in JSX</h2>
+                    <p>Mit JSX kannst du Ausdrücke in geschweifte Klammern <span></span>schreiben.<br></p>
+                    <p>Dies kann zum Beispiel eine Addition sein:</p>
+                    <code><pre>const myelement = h1&gt;React is {5 + 5} times better with JSX/h1&gt;;</pre></code>
+                    <h2>Einfügen eines großen HTML-Blocks</h2>
+                    <p>Wenn du HTML in mehrere Zeilen schreibst, setze Klammern rundherum.</p>
+                    <p id="c">Beispiel:</p><code><pre>const myelement = (
+    &lt;ul&gt;
+        &lt;li&gt;
+            Apples
+        &lt;/li&gt;
+        &lt;li&gt;
+            Bananas
+        &lt;/li&gt;
+        &lt;li&gt;
+            Cherries
+        &lt;/li&gt;
+    &lt;/ul&gt;
+);</pre></code>
+                    <h2> One Top Level Element</h2>
+                    <p>Der HTML-Code muss in EIN Element der obersten Ebene eingeschlossen werden.<br> Wenn du zwei
+                        Überschriften schreiben willst, musst du diese in ein parent-Element wie z.B. ein
+                        <span>div</span>-Element packen.</p>
+                    <p id="c">Beispiel:</p><code><pre>const myelement = (
+    &lt;div&gt;
+      &lt;h1&gt;I am a Header.&lt;/h1&gt;
+      &lt;h1&gt;I am a Header too.&lt;/h1&gt;
+    &lt;/div&gt;
+);</pre></code>
+                    <p id="a">JSX folgt den Regeln von XML. Deswegen müssen HTML-Elemente richtig geschlossen werden.
+                        Ansonsten gibt JSX einen Fehler aus.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script src="/static/js/bundle.js"></script>
+    <script src="/static/js/0.chunk.js"></script>
+    <script src="/static/js/main.chunk.js"></script>
+
+</body>
+
+</html>
