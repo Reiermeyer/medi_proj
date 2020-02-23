@@ -132,9 +132,11 @@
             </div>
             <div class="d">
               <div style="background-color: white; min-width: 500px; min-height: 17.5em;">
+               <code>
                 <pre
                   id="code0">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: "blau"};<br>  }<br>  render() {<br>    return (<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));</pre>
-              </div>
+                </code>
+                </div>
               <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
                 <div style="border: solid 1px gray;">
                   <b>Browser</b>
@@ -165,9 +167,11 @@
             </div>
             <div class="d">
               <div style="background-color: white; min-width: 600px; min-height: 20.5em;">
+              <code>
                 <pre
                   id="code1">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: "grün"};<br>  }<br> static getDerivedStateFromProps(props, state) {<br>   return {lieblingsfarbe: props.liebfarb };<br> }<br>  render() {<br>    return (<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header liebfarb="orange"/&gt;, document.getElementById('wurzel'));</pre>
-              </div>
+                </code>
+                </div>
               <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
                 <div style="border: solid 1px gray;">
                   <b>Browser</b>
@@ -190,9 +194,11 @@
             </div>
             <div class="d">
               <div style="background-color: white; min-width: 600px; min-height: 14.5em;">
+              <code>
                 <pre
                   id="code2">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  render() {<br>    return (<br>      &lt;h1&gt;Das ist im Header Component&lt;/h1&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));</pre>
-              </div>
+                </code>
+                </div>
               <div style="background-color: white; min-width: 600px; min-height: 14.5em; border: solid 1px gray;">
                 <div style="border: solid 1px gray;">
                   <b>Browser</b>
@@ -217,9 +223,11 @@
             </div>
             <div class="d">
               <div style="background-color: white; min-width: 600px; min-height: 22em;">
+              <code>
                 <pre
                   id="code3">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: &#34;gelb&#34;};<br>  }<br>  componentDidMount() {<br>    setTimeout(() =&gt; {<br>      this.setState({lieblingsfarbe: &#34;blau&#34;})<br>    }, 3000)<br>  }<br>  render() {<br>    return (<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));</pre>
-              </div>
+                </code>
+                </div>
               <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
                 <div style="border: solid 1px gray;">
                   <b>Browser</b>
@@ -266,9 +274,11 @@
             </div>
             <div class="d">
               <div style="background-color: white; min-width: 600px; min-height: 26em;">
+              <code>
                 <pre
                   id="code4">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: &#34;blau&#34;};<br>  }<br>  static getDerivedStateFromProps(props, state) {<br>    return {lieblingsfarbe: props.liebfarb };<br>  }<br>  changeColor = () =&gt; {<br>    this.setState({lieblingsfarbe: &#34;rot&#34;});<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>      &lt;button type=&#34;button&#34; onClick={this.änderFarbe}&gt;Ändere die Farbe&lt;/button&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header liebfarb=&#34;grün&#34;/&gt;, document.getElementById('wurzel'));</pre>
-              </div>
+                </code>
+                </div>
               <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
                 <div style="border: solid 1px gray;">
                   <b>Browser</b>
@@ -295,9 +305,11 @@
             </div>
             <div class="d">
               <div style="background-color: white; min-width: 600px; min-height: 26em;">
+              <code>
                 <pre
                   id="code5">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: &#34;blau&#34;};<br>  }<br>  shouldComponentUpdate() {<br>    return false;<br>  }<br>  changeColor = () =&gt; {<br>    this.setState({lieblingsfarbe: &#34;rot&#34;});<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>      &lt;button type=&#34;button&#34; onClick={this.änderFarbe}&gt;Ändere die Farbe&lt;/button&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));</pre>
-              </div>
+              </code>
+                </div>
               <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
                 <div style="border: solid 1px gray;">
                   <b>Browser</b>
@@ -364,9 +376,11 @@
             </div>
             <div class="d">
               <div style="background-color: white; min-width: 600px; min-height: 34em;">
+              <code>
                 <pre
                   id="code7">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: &#34;rot&#34;};<br>  }<br>  componentDidMount() {<br>    setTimeout(() =&gt; {<br>      this.setState({lieblingsfarbe: &#34;gelb&#34;})<br>    }, 3000)<br>  }<br>  getSnapshotBeforeUpdate(prevProps, prevState) {<br>    document.getElementById(&#34;div1&#34;).innerHTML =<br>    &#34;Vor der Aktualisierung war der Favorit &#34; + prevState.lieblingsfarbe;<br>  }<br>  componentDidUpdate() {<br>    document.getElementById(&#34;div2&#34;).innerHTML =<br>    &#34;Der aktualisierte Favorit ist &#34; + this.state.lieblingsfarbe;<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>      &lt;div id=&#34;div1&#34;&gt;&lt;/div&gt;<br>      &lt;div id=&#34;div2&#34;&gt;&lt;/div&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));</pre>
-              </div>
+                </code>
+                </div>
               <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
                 <div style="border: solid 1px gray;">
                   <b>Browser</b>
@@ -401,9 +415,11 @@
             </div>
             <div class="d">
               <div style="background-color: white; min-width: 600px; min-height: 29em;">
+              <code>
                 <pre
                   id="code8">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: &#34;red&#34;};<br>  }<br>  componentDidMount() {<br>    setTimeout(() =&gt; {<br>      this.setState({lieblingsfarbe: &#34;yellow&#34;})<br>    }, 3000)<br>  }<br>  componentDidUpdate() {<br>    document.getElementById(&#34;mydiv&#34;).innerHTML =<br>    &#34;Der aktualisierte Favorit ist &#34; + this.state.lieblingsfarbe;<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>      &lt;div id=&#34;mydiv&#34;&gt;&lt;/div&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getfElementById('wurzel'));</pre>
-              </div>
+                </code>
+                </div>
               <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
                 <div style="border: solid 1px gray;">
                   <b>Browser</b>
@@ -432,9 +448,11 @@
             </div>
             <div class="d">
               <div style="background-color: white; min-width: 600px; min-height: 37em;">
+              <code>
                 <pre
                   id="code9">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Container extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {show: true};<br>  }<br>  delHeader = () =&gt; {<br>    this.setState({show: false});<br>  }<br>  render() {<br>    let myheader;<br>    if (this.state.show) {<br>      myheader = &lt;Child /&gt;;<br>    };<br>    return (<br>      &lt;div&gt;<br>      {myheader}<br>      &lt;button type=&#34;button&#34; onClick={this.delHeader}&gt;Lösche den Header&lt;/button&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>class Child extends React.Component {<br>  componentWillUnmount() {<br>    alert(&#34;Das Component namens Header wird unmounted.&#34;);<br>  }<br>  render() {<br>    return (<br>      &lt;h1&gt;Hallo Welt!&lt;/h1&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Container /&gt;, document.getElementById('wurzel'));</pre>
-              </div>
+                </code>
+                </div>
               <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
                 <div style="border: solid 1px gray;">
                   <b>Browser</b>

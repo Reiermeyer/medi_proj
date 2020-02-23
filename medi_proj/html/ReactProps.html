@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
 
 <head>
 
@@ -84,9 +85,11 @@
             </div>
             <div class="d">
               <div style="background-color: white; min-width: 500px; min-height: 350px;">
+              <code>
                 <pre
                   id="code1">import React from 'react'&#59;<br>import ReactDOM from 'react-dom'&#59;<br><br>class Mensch extends React.Component {<br>  render() {<br>    return &lt;h2&gt;Ich heiße {this.props.<i><b style="color:red">name</b></i>}!&lt;/h2&gt;&#59;<br>  }<br>}<br><br>class Deutschland extends React.Component {<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Ich komme aus Deutschland!&lt;/h1&gt;<br>      &lt;Mensch <i><b style="color:red">name</b></i>=&#34;Mustermann&#34; /&gt;<br>      &lt;/div&gt;<br>    )&#59;<br>  }<br>}<br><br>ReactDOM.render(&lt;Deutschland /&gt;, document.getElementById('wurzel'))&#59;</pre>
-              </div>
+              </code>
+                </div>
               <div style="background-color: white; min-width: 600px; min-height: 350px; border: solid 1px gray;">
                 <div style="border: solid 1px gray;">
                   <b>Browser</b>
@@ -104,7 +107,9 @@
             <h3>Beispiel</h3>
             Erstelle eine Variable, z.B. mit dem Namen "person", und übergebe diese an das <i>Component</i> Mensch:
             <div style="background-color: white; width: 35em; margin-left: 5px;">
+            <code>
               <pre>import React from 'react'&#59;<br>import ReactDOM from 'react-dom'&#59;<br><br>class Mensch extends React.Component {<br>  render() {<br>    return &lt;h2&gt;Ich heiße {this.props.name!&lt;/h2&gt;&#59;<br>  }<br>}<br><br>class Deutschland extends React.Component {<br>  render() {<br>  <i><b style="color: red">const person = "Mustermann";</b></i><br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Ich komme aus Deutschland!&lt;/h1&gt;<br>      &lt;Mensch name=<i><b style="color: red">{person}</b></i> /&gt;<br>      &lt;/div&gt;<br>    )&#59;<br>  }<br>}<br><br>ReactDOM.render(&lt;Deutschland /&gt;, document.getElementById('wurzel'))&#59;</pre>
+            </code>
             </div>
           </div>
 
@@ -118,9 +123,11 @@
             </div>
             <div class="d">
               <div style="background-color: white; min-width: 500px; min-height: 350px;">
+              <code>
                 <pre
                   id="code2">import React from 'react'&#59;<br>import ReactDOM from 'react-dom'&#59;<br><br>class Mensch extends React.Component {<br>  render() {<br>    return &lt;h2&gt;Ich heiße {this.props.<i><b style="color:red">name.vorname</b></i>}!&lt;/h2&gt;&#59;<br>  }<br>}<br><br>class Deutschland extends React.Component {<br>  render() {<br>  const person = <i><b style="color:red">{vorname: "Max", nachname: "Mustermann"}</b></i><br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Ich komme aus Deutschland!&lt;/h1&gt;<br>      &lt;Mensch name=<i><b style="color:red">{person}</b></i> /&gt;<br>      &lt;/div&gt;<br>    )&#59;<br>  }<br>}<br><br>ReactDOM.render(&lt;Deutschland /&gt;, document.getElementById('wurzel'))&#59;</pre>
-              </div>
+                </code>
+                </div>
               <div style="background-color: white; min-width: 600px; min-height: 350px; border: solid 1px gray;">
                 <div style="border: solid 1px gray;">
                   <b>Browser</b>
@@ -139,7 +146,9 @@
           <div class="b">
             <h3>Beispiel</h3>
             <div style="background-color:white; width: 39em; margin-left: 5px;">
+            <code>
               <pre>class Car extends React.Component {<br> constructor(props) {<br>    super(props)&#59;<br> }<br> render() {<br>    return &lt;h2&gt;Ich bin ein Mensch!&lt;/h2&gt;&#59;<br> }<br>}<br><br>ReactDOM.render(&lt;Mensch vorname="Max"/&gt;, document.getElementById('wurzel'))&#59;</pre>
+            </code>
             </div>
             <p><b>Achtung!</b> React Props sind nur lesbar, ein Fehler würde auftreten, wenn man versucht den Wert zu
               ändern.</p>

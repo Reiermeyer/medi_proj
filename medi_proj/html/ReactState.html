@@ -55,7 +55,9 @@
                     <h3>Beispiel</h3>
                     Setze das Objekt "<i><b style="color:red">state</b></i>" in der Konstruktormethode:
                     <div class="c">
+                    <code>
                       <pre>class Mensch extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {name: "Mustermann"};<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>        &lt;h1&gt;Ich bin ein Mensch&lt;/h1&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}</pre>
+                    </code>
                     </div>
                   </div>
                   <p>Das Objekt "<i><b style="color:red">state</b></i>" kann beliebig viele Attribute enthalten:</p>
@@ -63,7 +65,9 @@
                     <h3>Beispiel</h3>
                     Setze alle, für das <i>Component</i> nötigen Attribute:
                     <div class="c">
+                    <code>
                       <pre>class Mensch extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {<br>      name: "Mustermann",<br>      geschlecht: "männlich",<br>      alter: 42,<br>      herkunft: "Deutschland"<br>};<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>        &lt;h1&gt;Ich bin ein Mensch&lt;/h1&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}</pre>
+                    </code>
                     </div>
                   </div>
               
@@ -78,7 +82,9 @@
                     </div>
                     <div class="d">
                       <div style="background-color: white; min-width: 500px; min-height: 28em;">
+                      <code>
                         <pre id="code0">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Mensch extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {<br>      name: "Mustermann",<br>      geschlecht: "männlich",<br>      alter: 42,<br>      herkunft: "Deutschland"<br>};<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>        &lt;h1&gt;Ich heiße {this.state.name}&lt;/h1&gt;<br>        &lt;p&gt;<br>         Ich bin {this.state.geschlecht}, {this.state.alter} Jahre<br>         und komme aus {this.state.herkunft}.<br>        &lt;/p&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Mensch /&gt;, document.getElementById('wurzel'));</pre>
+                      </code>
                       </div>
                       <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
                         <div style="border: solid 1px gray;">
@@ -101,7 +107,9 @@
                     </div>
                     <div class="d">
                       <div style="background-color: white; min-width: 500px; min-height: 35em;">
+                      <code>
                         <pre id="code1">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Mensch extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {<br>      name: "Mustermann",<br>      geschlecht: "männlich",<br>      alter: 42,<br>      herkunft: "Deutschland"<br>   };<br>  }<br>  ändereAlter = () => {<br>   this.setState({alter: 50});<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>        &lt;h1&gt;Ich heiße {this.state.name}&lt;/h1&gt;<br>        &lt;p&gt;<br>         Ich bin {this.state.geschlecht}, {this.state.alter} Jahre<br>         und komme aus {this.state.herkunft}.<br>        &lt;/p&gt;<br>        &lt;button<br>          type="button"<br>         onClick={this.ändereAlter}<br>        &gt;Ändere das Alter&lt;/button&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Mensch /&gt;, document.getElementById('wurzel'));</pre>
+                      </code>
                       </div>
                       <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
                         <div style="border: solid 1px gray;">
