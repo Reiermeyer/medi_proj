@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8" content="width=device-width, initial-scale=1" />
+    <title>React Lifecycle</title>
+    <script type="text/javascript">
+      var x = 0;
+      function js(code) {
+        if(code == 0) document.getElementById("code0").innerHTML = "import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: \"blau\"};<br>  }<br>  render() {<br>    return (<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));";
+        if(code == 1) document.getElementById("code1").innerHTML = "import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: \"grün\"};<br>  }<br> static getDerivedStateFromProps(props, state) {<br>   return {lieblingsfarbe: props.liebfarb };<br> }<br>  render() {<br>    return (<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header liebfarb=\"orange\"/&gt;, document.getElementById('wurzel'));";
+        if(code == 2) document.getElementById("code2").innerHTML = "import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  render() {<br>    return (<br>      &lt;h1&gt;Das ist im Header Component&lt;/h1&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));";
+        if(code == 3) document.getElementById("code3").innerHTML = "import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: \"gelb\"};<br>  }<br>  componentDidMount() {<br>    setTimeout(() =&gt; {<br>      this.setState({lieblingsfarbe: \"blau\"})<br>    }, 5000)<br>  }<br>  render() {<br>    return (<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));";
+        if(code == 4) document.getElementById("code4").innerHTML = "import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: \"blau\"};<br>  }<br>  static getDerivedStateFromProps(props, state) {<br>    return {lieblingsfarbe: props.liebfarb };<br>  }<br>  changeColor = () =&gt; {<br>    this.setState({lieblingsfarbe: \"rot\"});<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>      &lt;button type=\"button\" onClick={this.änderFarbe}&gt;Ändere die Farbe&lt;/button&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header liebfarb=\"grün\"/&gt;, document.getElementById('wurzel'));";
+        if(code == 5) document.getElementById("code5").innerHTML = "import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: \"blau\"};<br>  }<br>  shouldComponentUpdate() {<br>    return false;<br>  }<br>  changeColor = () =&gt; {<br>    this.setState({lieblingsfarbe: \"rot\"});<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>      &lt;button type=\"button\" onClick={this.änderFarbe}&gt;Ändere die Farbe&lt;/button&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));";
+        if(code == 6) document.getElementById("code6").innerHTML = "import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: \"gelb\"};<br>  }<br>  änderFarbe = () =&gt; {<br>    this.setState({lieblingsfarbe: \"grün\"});<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>      &lt;button type=\"button\" onClick={this.änderFarbe}&gt;Ändere die Farbe&lt;/button&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));";
+        if(code == 7) document.getElementById("code7").innerHTML = "import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: \"rot\"};<br>  }<br>  componentDidMount() {<br>    setTimeout(() =&gt; {<br>      this.setState({lieblingsfarbe: \"gelb\"})<br>    }, 3000)<br>  }<br>  getSnapshotBeforeUpdate(prevProps, prevState) {<br>    document.getElementById(\"div1\").innerHTML =<br>    \"Vor der Aktualisierung war der Favorit \" + prevState.lieblingsfarbe;<br>  }<br>  componentDidUpdate() {<br>    document.getElementById(\"div2\").innerHTML =<br>    \"Der aktualisierte Favorit ist \" + this.state.lieblingsfarbe;<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>      &lt;div id=\"div1\"&gt;&lt;/div&gt;<br>      &lt;div id=\"div2\"&gt;&lt;/div&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));";
+        if(code == 8) document.getElementById("code8").innerHTML = "import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: \"red\"};<br>  }<br>  componentDidMount() {<br>    setTimeout(() =&gt; {<br>      this.setState({lieblingsfarbe: \"yellow\"})<br>    }, 3000)<br>  }<br>  componentDidUpdate() {<br>    document.getElementById(\"mydiv\").innerHTML =<br>    \"Der aktualisierte Favorit ist \" + this.state.lieblingsfarbe;<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>      &lt;div id=\"mydiv\"&gt;&lt;/div&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getfElementById('wurzel'));";
+        if(code == 9) document.getElementById("code9").innerHTML = "import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Container extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {show: true};<br>  }<br>  delHeader = () =&gt; {<br>    this.setState({show: false});<br>  }<br>  render() {<br>    let myheader;<br>    if (this.state.show) {<br>      myheader = &lt;Child /&gt;;<br>    };<br>    return (<br>      &lt;div&gt;<br>      {myheader}<br>      &lt;button type=&#34;button&#34; onClick={this.delHeader}&gt;Lösche den Header&lt;/button&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>class Child extends React.Component {<br>  componentWillUnmount() {<br>    alert(&#34;Das Component namens Header wird unmounted.&#34;);<br>  }<br>  render() {<br>    return (<br>      &lt;h1&gt;Hallo Welt!&lt;/h1&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Container /&gt;, document.getElementById('wurzel'));";
+      }
+
+      function html(code) {
+        document.getElementById("code" + code).innerHTML = "&lt;!DOCTYPE html&gt;<br>&lt;html lang=&#34;de&#34;&gt;<br>  &lt;head&gt;<br>    &lt;meta charset=&#34;utf-8&#34; /&gt;<br>    &lt;meta name=&#34;viewport&#34;<br>      content=&#34;width=device-width, initial-scale=1&#34; /&gt;<br>  &lt;/head&gt;<br>  &lt;body&gt;<br><br>    &lt;div id=&#34;wurzel&#34;&gt;&lt;/div&gt;<br><br>  &lt;/body&gt;<br>&lt;/html&gt;";
+      }
+
+      function start() {
+        x += 1;
+        if(x == 1) document.getElementById("2").innerHTML = "<h1>Meine Lieblingsfarbe ist blau</h1>";
+        if(x == 2) {
+          document.getElementById("2").innerHTML = "<h1>Meine Lieblingsfarbe ist gelb</h1>";
+          x = 0;
+        }
+      }
+
+      function start1() {
+        x += 1;
+        if(x == 1) document.getElementById("3").innerHTML = "<h1>Meine Lieblingsfarbe ist grün</h1>";
+        if(x == 2) {
+          document.getElementById("3").innerHTML = "<h1>Meine Lieblingsfarbe ist gelb</h1>";
+          x = 0;
+        }
+      }
+
+      function start2() {
+        x += 1;
+        if(x == 1) document.getElementById("4").innerHTML = "<h1>Meine Lieblingsfarbe ist gelb</h1><div>Vor der Aktualisierung war der Favorit rot</div><br><div>Der aktualisierte Favorit ist gelb</div>";
+        if(x == 2) {
+          document.getElementById("4").innerHTML = "<h1>Meine Lieblingsfarbe ist rot</h1>";
+          x = 0;
+        }
+      }
+
+      function start3() {
+        x += 1;
+        if(x == 1) document.getElementById("5").innerHTML = "<h1>Meine Lieblingsfarbe ist gelb</h1><div>Der aktualisierte Favorit ist gelb</div>";
+        if(x == 2) {
+          document.getElementById("5").innerHTML = "<h1>Meine Lieblingsfarbe ist rot</h1>";
+          x = 0;
+        }
+      }
+
+      function start4() {
+        x += 1;
+        if(x == 1) {
+          alert("Das Component namens Header wird unmounted.");
+          document.getElementById("6").innerHTML = "";
+        }
+        if(x == 2) {
+          document.getElementById("6").innerHTML = "<h1>Hallo Welt!</h1>";
+          x = 0;
+        }
+      }
+    </script>
+  </head>
+  <style media="screen">
+
+  </style>
+  <link rel="stylesheet" href="stylesheet1.css">
+  <body>
+    <h1>React Lifecycle</h1>
+    <h2>Lifecycle von <i>Components</i></h2>
+    <p>Jedes <i>Component</i> in React hat einen Lifecycle den du während seiner drei Hauptphasen überwachen und manipulieren kannst.</p>
+    <p>Die drei Phasen heißen: <b>Mounting</b>, <b>Updating</b> und <b>Unmounting</b>.</p>
+    <h2>Mounting</h2>
+    <p><i>Mounting</i> bedeutet, dass man Elemente in das DOM packt.</p>
+    <p>React hat vier eingebaute Methoden, zum mounten eines <i>Component</i>, welche in dieser Reihenfolge gerufen werden:</p>
+    <ol>
+      <li><i><b style ="color: red">constructor()</b></i></li>
+      <li><i><b style ="color: red">getDerivedStateFromProps()</b></i></li>
+      <li><i><b style ="color: red">render()</b></i></li>
+      <li><i><b style ="color: red">componentDidMount()</b></i></li>
+    </ol>
+
+    <p>Die Methode <i><b style ="color: red">render()</b></i> ist gefordert, wird immer gerufen. Die Anderen sind rein optional und werden nur gerufen, wenn du sie definierst.</p>
+    <h3><i><b style ="color: red">constructor()</b></i></h3>
+    <p>Die Methode <i><b style ="color: red">constructor()</b></i> wird zuerst gerufen, vor allen anderen, sobald das <i>Component</i> eingeleitet wurde. Es ist perfekte Ort um das anfängliche Objekt <i><b style ="color: red">"state"</b></i> und andere anfängliche Werte festzulegen.</p>
+    <p>Sie wird mit den Props als Argumente gerufen. Zuallererst sollte man immer <i><b style ="color: red">super(props) </b></i>rufen, dies wird die "parent's constructor method" einleiten und dem <i>Component</i> erlauben, Methoden von seinem <i>parent</i> <i><b style ="color: red">React.Component</b></i> zu erben.</p>
+    <p style="background-color: lightgreen;"><b>Anmerkung:</b> Vorkommende Knöpfe einmal für Darstellung drücken, nochmal um zum Ausgangszustand zurückzukehren.</p>
+
+    <div class="b">
+      <h3>Beispiel</h3>
+      Die Methode <i><b style ="color: red">constructor()</b></i> wird jedes mal, wenn man ein <i>Component</i> erstellt, von React gerufen:
+      <div class="e">
+        <input type="button" value="test.js" onclick="js('0')" />
+        <input type="button" value="test.html" onclick="html('0')" />
+      </div>
+      <div class="d">
+        <div style="background-color: white; min-width: 500px; min-height: 17.5em;">
+          <pre id="code0">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: "blau"};<br>  }<br>  render() {<br>    return (<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));</pre>
+        </div>
+        <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
+          <div style="border: solid 1px gray;">
+            <b>Browser</b>
+          </div>
+            <pre><h1>Meine Lieblingsfarbe ist blau</h1></pre>
+          </div>
+        </div>
+    </div>
+
+    <h3><i><b style ="color: red">getDerivedStateFromProps()</b></i></h3>
+    <p>Die Methode <i><b style ="color: red">getDerivedStateFromProps()</b></i> wird direkt vor dem rendern der Elemente im DOM gerufen.</p>
+    <p>Hier wird das Objekt <i><b style ="color: red">"state"</b></i>, basierend auf den anfänglichen Werten der <i><b style ="color: red">"props"</b></i>, belegt.</p>
+    <p>Sie nimmt das Objekt <i><b style ="color: red">"state"</b></i> als Argument und gibt ein abgeändertes Objekt an <i><b style ="color: red">"state"</b></i> zurück.</p>
+    <p>Das untere Beispiel hat am Anfang als Lieblingsfarbe "grün", aber die Methode <i><b style ="color: red">getDerivedStateFromProps()</b></i> aktualisiert die Lieblingsfarbe nach dem Attribut liebfarb basierend:</p>
+
+    <div class="b">
+      <h3>Beispiel</h3>
+      Die Methode <i><b style ="color: red">getDerivedStateFromProps()</b></i> wird direkt vor der Methode <i><b style ="color: red">render()</b></i> gerufen:
+      <div class="e">
+        <input type="button" value="test.js" onclick="js('1')" />
+        <input type="button" value="test.html" onclick="html('1')" />
+      </div>
+      <div class="d">
+        <div style="background-color: white; min-width: 600px; min-height: 20.5em;">
+          <pre id="code1">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: "grün"};<br>  }<br> static getDerivedStateFromProps(props, state) {<br>   return {lieblingsfarbe: props.liebfarb };<br> }<br>  render() {<br>    return (<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header liebfarb="orange"/&gt;, document.getElementById('wurzel'));</pre>
+        </div>
+        <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
+          <div style="border: solid 1px gray;">
+            <b>Browser</b>
+          </div>
+            <pre><h1>Meine Lieblingsfarbe ist orange</h1></pre>
+          </div>
+        </div>
+    </div>
+
+    <h3><i><b style ="color: red">render()</b></i></h3>
+    <p>Die Methode <i><b style ="color: red">render()</b></i> ist gefordert und dafür zuständig das HTML zum DOM auszugeben.</p>
+
+    <div class="b">
+      <h3>Beispiel</h3>
+      Ein einfaches <i>Component</i> mit einer simplen Methode <i><b style ="color: red">render()</b></i>:
+      <div class="e">
+        <input type="button" value="test.js" onclick="js('2')" />
+        <input type="button" value="test.html" onclick="html('2')" />
+      </div>
+      <div class="d">
+        <div style="background-color: white; min-width: 600px; min-height: 14.5em;">
+          <pre id="code2">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  render() {<br>    return (<br>      &lt;h1&gt;Das ist im Header Component&lt;/h1&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));</pre>
+        </div>
+        <div style="background-color: white; min-width: 600px; min-height: 14.5em; border: solid 1px gray;">
+          <div style="border: solid 1px gray;">
+            <b>Browser</b>
+          </div>
+            <pre><h1>Das ist im Header Component</h1></pre>
+          </div>
+        </div>
+    </div>
+
+    <h3><i><b style ="color: red">componentDidMount()</b></i></h3>
+    <p>Die Methode <i><b style ="color: red">componentDidMount()</b></i> wird erst nach dem rendern des <i>Components</i> gerufen.</p>
+    <p>Hier führst du Befehle aus, welche das <i>Component</i> bereits im DOM platziert brauchen.</p>
+
+    <div class="b">
+      <h3>Beispiel</h3>
+      Erst ist die Lieblingsfarbe gelb, nach drei Sekunden ist sie stattdessen blau (Knopf für Simulation drücken):
+      <div class="e">
+        <input type="button" value="test.js" onclick="js('3')" />
+        <input type="button" value="test.html" onclick="html('3')" />
+      </div>
+      <div class="d">
+        <div style="background-color: white; min-width: 600px; min-height: 22em;">
+          <pre id="code3">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: &#34;gelb&#34;};<br>  }<br>  componentDidMount() {<br>    setTimeout(() =&gt; {<br>      this.setState({lieblingsfarbe: &#34;blau&#34;})<br>    }, 3000)<br>  }<br>  render() {<br>    return (<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));</pre>
+        </div>
+        <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
+          <div style="border: solid 1px gray;">
+            <b>Browser</b>
+          </div>
+            <pre id="2"><h1>Meine Lieblingsfarbe ist gelb</h1></pre>
+            <input type="button" value="Starte Simulation" onclick="setTimeout(start, 3000);" />
+          </div>
+        </div>
+    </div>
+
+    <h3>Updating</h3>
+    <p>Die nächste Phase im Lifecycle ist wenn ein <i>Component</i> aktualisiert wird.</p>
+    <p>Ein <i>Component</i> ist aktualisiert, wenn es eine Änderung in <i><b style ="color: red">"state"</b></i> oder <i><b style ="color: red">"props"</b></i> gibt.</p>
+    <p>React hat fünf eingebaute Methoden, welche in dieser Reihenfolge, sobald ein <i>Component</i> aktualisiert wurde, gerufen werden:</p>
+    <ol>
+      <li><i><b style ="color: red">getDerivedStateFromProps()</b></i></li>
+      <li><i><b style ="color: red">shouldComponentUpdate()</b></i></li>
+      <li><i><b style ="color: red">render()</b></i></li>
+      <li><i><b style ="color: red">getSnapshotBeforeUpdate()</b></i></li>
+      <li><i><b style ="color: red">componentDidMount()</b></i></li>
+    </ol>
+
+    <p>Die Methode <i><b style ="color: red">render()</b></i> ist gefordert, wird immer gerufen. Die Anderen sind rein optional und werden nur gerufen, wenn du sie definierst.</p>
+    <h2><i><b style ="color: red">getDerivedStateFromProps()</b></i></h2>
+    <p>Auch bei <i>updates</i> wird diese Methode gerufen. Das ist die erste Methode welche beim Aktualisieren von einem <i>Component</i> gerufen wird.</p>
+    <p>Auch hier wird das Objekt <i><b style ="color: red">"state"</b></i>, basierend auf den anfänglichen Werten der <i><b style ="color: red">"props"</b></i>, belegt.</p>
+    <p>Das untere Beispiel beinhaltet einen Knopf, welcher die Lieblingsfarbe zu rot wechselt. Aber weil die Methode <i><b style ="color: red">getDerivedStateFromProps()</b></i> gerufen wird, welche das Objekt <i><b style ="color: red">"state"</b></i> mit der Farbe vom liebfarb-Attribut aktualisiert, rendert die Lieblingsfarbe trotzdem als grün:</p>
+
+    <div class="b">
+      <h3>Beispiel</h3>
+      Wenn das <i>Component</i> aktualisiert wird, dann wird die Methode <i><b style ="color: red">getDerivedStateFromProps()</b></i> gerufen:
+      <div class="e">
+        <input type="button" value="test.js" onclick="js('4')" />
+        <input type="button" value="test.html" onclick="html('4')" />
+      </div>
+      <div class="d">
+        <div style="background-color: white; min-width: 600px; min-height: 26em;">
+          <pre id="code4">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: &#34;blau&#34;};<br>  }<br>  static getDerivedStateFromProps(props, state) {<br>    return {lieblingsfarbe: props.liebfarb };<br>  }<br>  changeColor = () =&gt; {<br>    this.setState({lieblingsfarbe: &#34;rot&#34;});<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>      &lt;button type=&#34;button&#34; onClick={this.änderFarbe}&gt;Ändere die Farbe&lt;/button&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header liebfarb=&#34;grün&#34;/&gt;, document.getElementById('wurzel'));</pre>
+        </div>
+        <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
+          <div style="border: solid 1px gray;">
+            <b>Browser</b>
+          </div>
+            <pre><h1>Meine Lieblingsfarbe ist grün</h1></pre>
+            <input type="button" value="Ändere Farbe" onclick="" />
+          </div>
+        </div>
+    </div>
+
+    <h3><i><b style ="color: red">shouldComponentUpdate()</b></i></h3>
+    <p>In der Methode <i><b style ="color: red">shouldComponentUpdate()</b></i> kannst du ein Boolean-Wert zurückgeben, welcher festlegt ob React mit dem rendern fortsetzen soll oder nicht.</p>
+    <p>Standard-Wert ist 'true' (wahr).</p>
+    <p>Das untere Beispiel zeigt was passiert wenn die Methode <i><b style ="color: red">shouldComponentUpdate()</b></i> 'false' (unwahr) zurückgibt.</p>
+
+    <div class="b">
+      <h3>Beispiel</h3>
+      So stoppt man das rendern des <i>Component</i> bei jeder Aktualisierung:
+      <div class="e">
+        <input type="button" value="test.js" onclick="js('5')" />
+        <input type="button" value="test.html" onclick="html('5')" />
+      </div>
+      <div class="d">
+        <div style="background-color: white; min-width: 600px; min-height: 26em;">
+          <pre id="code5">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: &#34;blau&#34;};<br>  }<br>  shouldComponentUpdate() {<br>    return false;<br>  }<br>  changeColor = () =&gt; {<br>    this.setState({lieblingsfarbe: &#34;rot&#34;});<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>      &lt;button type=&#34;button&#34; onClick={this.änderFarbe}&gt;Ändere die Farbe&lt;/button&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));</pre>
+        </div>
+        <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
+          <div style="border: solid 1px gray;">
+            <b>Browser</b>
+          </div>
+            <pre><h1>Meine Lieblingsfarbe ist blau</h1></pre>
+            <input type="button" value="Ändere Farbe" onclick="" />
+          </div>
+        </div>
+        <p>Wenn man nun im selben Beispiel die Methode <i><b style ="color: red">shouldComponentUpdate()</b></i> 'true' zurückgeben lässt, so wäre meine Lieblingsfarbe rot.</p>
+    </div>
+
+    <h3><i><b style ="color: red">render()</b></i></h3>
+    <p>Die Methode wird gerufen, wenn ein <i>Component</i> aktualisiert wird und sie rendert das HTML, mit den neuen Änderungen, neu zum DOM.</p>
+    <p>Das untere Beispiel enthält einen Knopf der die Lieblingsfarbe zu lila wechselt:</p>
+
+    <div class="b">
+      <h3>Beispiel</h3>
+      Drückt den Knopf um eine Änderung in <i>Components</i> <i><b style ="color: red">"state"</b></i> vorzunehmen:
+      <div class="e">
+        <input type="button" value="test.js" onclick="js('6')" />
+        <input type="button" value="test.html" onclick="html('6')" />
+      </div>
+      <div class="d">
+        <div style="background-color: white; min-width: 600px; min-height: 26em;">
+          <pre id="code6">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: &#34;gelb&#34;};<br>  }<br>  änderFarbe = () =&gt; {<br>    this.setState({lieblingsfarbe: &#34;grün&#34;});<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>      &lt;button type=&#34;button&#34; onClick={this.änderFarbe}&gt;Ändere die Farbe&lt;/button&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));</pre>
+        </div>
+        <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
+          <div style="border: solid 1px gray;">
+            <b>Browser</b>
+          </div>
+            <pre id="3"><h1>Meine Lieblingsfarbe ist gelb</h1></pre>
+            <input type="button" value="Ändere Farbe" onclick="start1()" />
+          </div>
+        </div>
+    </div>
+
+    <h3><i><b style ="color: red">getSnapshotBeforeUpdate()</b></i></h3>
+    <p>In dieser Methode hat man Zugriff auf <i><b style ="color: red">"props"</b></i> und <i><b style ="color: red">"state"</b></i> vor der Aktualisierung, was bedeutet, dass man selbst danach überprüfen kann wie die Werte vor der Aktualisierung aussahen.</p>
+    <p>Wenn man die Methode <i><b style ="color: red">getSnapshotBeforeUpdate()</b></i> nutzt, so sollte man auch die Methode <i><b style ="color: red">componentDidUpdate()</b></i> integrieren, sonst tritt ein Fehler auf.</p>
+    <p>Das untere Beispiel läuft bei Betätigung des Knopfes "Start" folgend ab:</p>
+    <p>Wenn das <i>Component</i> mounted, dann rendert es mit der Lieblingsfarbe rot.</p>
+    <p>Wenn das <i>Component</i> gemounted wurde, dann ändert ein Timer <i><b style ="color: red">"state"</b></i> und nach drei Sekunden ist die Lieblingsfarbe gelb.</p>
+    <p>Dadurch wird die Aktualisierungs-Phase ausgelöst und da das <i>Component</i> die Methode <i><b style ="color: red">getSnapshotBeforeUpdate()</b></i> hat, wird diese ausgeführt, wobei sie in das leere div1-Element reinschreibt.</p>
+    <p>Dann wird die Methode <i><b style ="color: red">componentDidUpdate()</b></i> ausgeführt, welche in das leere div2-Element schreibt.</p>
+
+    <div class="b">
+      <h3>Beispiel</h3>
+      Nutze die Methode <i><b style ="color: red">getSnapshotBeforeUpdate()</b></i> um herauszufinden wie das Objekt <i><b style ="color: red">"state"</b></i> vor der Aktualisierung aussah:
+      <div class="e">
+        <input type="button" value="test.js" onclick="js('7')" />
+        <input type="button" value="test.html" onclick="html('7')" />
+      </div>
+      <div class="d">
+        <div style="background-color: white; min-width: 600px; min-height: 34em;">
+          <pre id="code7">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: &#34;rot&#34;};<br>  }<br>  componentDidMount() {<br>    setTimeout(() =&gt; {<br>      this.setState({lieblingsfarbe: &#34;gelb&#34;})<br>    }, 3000)<br>  }<br>  getSnapshotBeforeUpdate(prevProps, prevState) {<br>    document.getElementById(&#34;div1&#34;).innerHTML =<br>    &#34;Vor der Aktualisierung war der Favorit &#34; + prevState.lieblingsfarbe;<br>  }<br>  componentDidUpdate() {<br>    document.getElementById(&#34;div2&#34;).innerHTML =<br>    &#34;Der aktualisierte Favorit ist &#34; + this.state.lieblingsfarbe;<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>      &lt;div id=&#34;div1&#34;&gt;&lt;/div&gt;<br>      &lt;div id=&#34;div2&#34;&gt;&lt;/div&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getElementById('wurzel'));</pre>
+        </div>
+        <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
+          <div style="border: solid 1px gray;">
+            <b>Browser</b>
+          </div>
+            <div id="4">
+              <h1>Meine Lieblingsfarbe ist rot</h1>
+              <div></div>
+              <div></div>
+            </div>
+            <input type="button" value="Start" onclick="setTimeout(start2, 3000);" />
+          </div>
+        </div>
+    </div>
+
+    <h3>componentDidUpdate</h3>
+    <p>Diese Methode wird nach der Aktualisierung des <i>Components</i> im DOM, gerufen.</p>
+    <p>Das untere Beispiel läuft bei Betätigung des Knopfes "Start" folgend ab:</p>
+    <p>Wenn das <i>Component</i> mounted, dann rendert es mit der Lieblingsfarbe rot.</p>
+    <p>Wenn es gemounted wurde, ändert ein Timer <i><b style ="color: red">"state"</b></i> und die Farbe wird gelb.</p>
+    <p>Dadurch wird die Aktualisierungs-Phase ausgelöst und da das <i>Component</i> die Methode <i><b style ="color: red">componentDidUpdate()</b></i> hat, wird diese ausgeführt, wobei sie in das leere div-Element schreibt:</p>
+
+    <div class="b">
+      <h3>Beispiel</h3>
+      Die Methode <i><b style ="color: red">componentDidUpdate()</b></i> wird gerufen, wenn die Aktualisierung in das DOM gerendert wurde:
+      <div class="e">
+        <input type="button" value="test.js" onclick="js('8')" />
+        <input type="button" value="test.html" onclick="html('8')" />
+      </div>
+      <div class="d">
+        <div style="background-color: white; min-width: 600px; min-height: 29em;">
+          <pre id="code8">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Header extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {lieblingsfarbe: &#34;red&#34;};<br>  }<br>  componentDidMount() {<br>    setTimeout(() =&gt; {<br>      this.setState({lieblingsfarbe: &#34;yellow&#34;})<br>    }, 3000)<br>  }<br>  componentDidUpdate() {<br>    document.getElementById(&#34;mydiv&#34;).innerHTML =<br>    &#34;Der aktualisierte Favorit ist &#34; + this.state.lieblingsfarbe;<br>  }<br>  render() {<br>    return (<br>      &lt;div&gt;<br>      &lt;h1&gt;Meine Lieblingsfarbe ist {this.state.lieblingsfarbe}&lt;/h1&gt;<br>      &lt;div id=&#34;mydiv&#34;&gt;&lt;/div&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Header /&gt;, document.getfElementById('wurzel'));</pre>
+        </div>
+        <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
+          <div style="border: solid 1px gray;">
+            <b>Browser</b>
+          </div>
+            <div id="5">
+              <h1>Meine Lieblingsfarbe ist rot</h1>
+              <div></div>
+            </div>
+            <input type="button" value="Start" onclick="setTimeout(start3, 3000);" />
+          </div>
+        </div>
+    </div>
+
+    <h3>Unmounting</h3>
+    <p>Die nächste Phase im Lifecycle ist, wenn ein <i>Component</i> vom DOM entfernt wurde (unmounting).</p>
+    <p>React hat nur eine eingebaute Methode, welche gerufen wird, wenn ein <i>Component</i> unmounted wird.</p>
+    <p><b>-</b> <i><b style ="color: red">componentWillUnMount()</b></i></p>
+    <p>Die Methode wird gerufen wenn ein <i>Component</i> davor steht vom DOM entfernt zu werden.</p>
+
+    <div class="b">
+      <h3>Beispiel</h3>
+      Drück den Knopf um den Header zu löschen:
+      <div class="e">
+        <input type="button" value="test.js" onclick="js('9')" />
+        <input type="button" value="test.html" onclick="html('9')" />
+      </div>
+      <div class="d">
+        <div style="background-color: white; min-width: 600px; min-height: 37em;">
+          <pre id="code9">import React from 'react';<br>import ReactDOM from 'react-dom';<br><br>class Container extends React.Component {<br>  constructor(props) {<br>    super(props);<br>    this.state = {show: true};<br>  }<br>  delHeader = () =&gt; {<br>    this.setState({show: false});<br>  }<br>  render() {<br>    let myheader;<br>    if (this.state.show) {<br>      myheader = &lt;Child /&gt;;<br>    };<br>    return (<br>      &lt;div&gt;<br>      {myheader}<br>      &lt;button type=&#34;button&#34; onClick={this.delHeader}&gt;Lösche den Header&lt;/button&gt;<br>      &lt;/div&gt;<br>    );<br>  }<br>}<br><br>class Child extends React.Component {<br>  componentWillUnmount() {<br>    alert(&#34;Das Component namens Header wird unmounted.&#34;);<br>  }<br>  render() {<br>    return (<br>      &lt;h1&gt;Hallo Welt!&lt;/h1&gt;<br>    );<br>  }<br>}<br><br>ReactDOM.render(&lt;Container /&gt;, document.getElementById('wurzel'));</pre>
+        </div>
+        <div style="background-color: white; min-width: 600px; min-height: 220px; border: solid 1px gray;">
+          <div style="border: solid 1px gray;">
+            <b>Browser</b>
+          </div>
+            <div id="6">
+              <h1>Hallo Welt!</h1>
+            </div>
+            <input type="button" value="Lösche den Header" onclick="start4()" />
+          </div>
+        </div>
+    </div>
+  </body>
+</html>
